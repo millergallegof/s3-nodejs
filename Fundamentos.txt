@@ -1,0 +1,66 @@
+IAM
+maneja la idnetidad en aws
+usuario-forma en la que se loguea pueden ser personas o proyectos 
+se recomienda no usar el usuario root para realizar acciones
+se recomienda crear un usuario con permisos admin
+cuenta root->
+-policy -> describe lso permisos del usuario
+se pueden crear grupos para generalizar los permisos en el grupo
+password policy->restricciones al crear o asignar una contraseña a un usuario
+los roles se crean para utilizar servicios diferentes de aws
+identityy provider -> se puede asociar usuarios segun el dominio del correo gmail-outlook
+least privilege acces-> dar el minimo acceso a los usuarios para realizra su tarea
+mfa-> multifactor acutentication autenticacion multiple
+el usuario raiz solo se utiliza para crear el primer usuario iam
+
+EC2
+-permite administrar servidores virtuales en la nube
+instancia -> servidor virtual - son diferentes servicios del servidor que se pueden utilizar
+despues de seleccionar la "imagen" se debe seleccionar el tipo de tamaño que se va a requerir
+en este caso se tienen instancias micro-nano-large-medium
+las ip publicas de la instancia creadas pueden cambiar
+por lo tanto se debe asignar una ip elastica
+
+S3
+simple storage service
+guardar archivos estaticos
+cada archivo puede pesar 5TB
+Bucket-> contenedor donde se almacenana los objetos
+el nombre del bucket tiene que ser unico
+
+Politicas Acceso Bucket
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "Statement1",
+			"Principal": "*", -> se le da permiso a todo el mundo
+			"Effect": "Allow",
+			"Action": [],
+			"Resource": []
+		}
+	]
+}
+
+reglas de ciclo de vida-> son reglas para que segun el tiempo del objeto sea transferido a un tipo de
+almacenamiento
+sntandart
+standrat
+
+LAMBDA
+con como las functions en google
+trigger-> forma de ejecutar la lambda- es decir el evento que requiere para que se ejecute la function
+algunos eventos son api Gateway- DinamicDB - S3
+tambien se puede probar con un test
+cuando se llama lambda se crea un servidor web donde se crea un ambiente para ejecutar la funcion
+se cobra por el tiempo que dura la funcion ejecutandose en el servidor
+las funciones lo mas importante es tener un codigo pequeño con pocas librerias
+el servidor no se apaga automaticamente cuando la function termina el proceso
+queda en caliente unos minutos mas por si llega alguna solicitud
+Se puede incrementar la memoria RAM virtual en configuraciones de lambda (mas costo)
+se deben dar permisos a las lambdas a los diferentes servicios de AWS
+se puede crear un endpoint de la funcion lambda directamente
+
+
+
+
